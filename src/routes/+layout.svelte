@@ -111,9 +111,17 @@
 			}
 		}
 
-		@media screen and (max-width: $mobile) {
-			.tabs {
-				display: flex;
+		.tabs {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+
+			width: 100%;
+
+			@media screen and (max-width: $mobile) {
+				align-items: unset;
+				flex-direction: row;
+				justify-content: center;
 			}
 		}
 

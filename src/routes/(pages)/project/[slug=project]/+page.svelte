@@ -79,7 +79,7 @@
 	.proj {
 		width: 70%;
 
-		@media screen and (max-width: 768px) {
+		@media screen and (max-width: $mobile) {
 			width: 100%;
 		}
 
@@ -194,7 +194,7 @@
 
 		$disabled-color: mix($bkg, white, 60%);
 
-		@media screen and (max-width: 768px) {
+		@media screen and (max-width: $mobile) {
 			align-items: unset;
 			flex-direction: column;
 			justify-content: center;
@@ -225,7 +225,7 @@
 			$bkg 10px
 			);
 
-			@media screen and (max-width: 768px) {
+			@media screen and (max-width: $mobile) {
 				font-size: 1.2em;
 			}
 
@@ -240,7 +240,7 @@
 				color: $muted-accent;
 				border-color: $muted-accent;
 
-				@media screen and (max-width: 768px) {
+				@media screen and (max-width: $mobile) {
 					margin-top: 0.5em;
 					margin-left: 0;
 				}
