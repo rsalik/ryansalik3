@@ -33,14 +33,21 @@
 		<div class="wrapper">
 			<a href="/"><div class="title">Ryan Salik</div></a>
 			<br />
-			{#each pages as page, i}
-				<a href={'/' + page.toLowerCase()} class="tab mono" class:active={page === pagename}
-					><span>0{i + 1}</span> {page}</a
-				>
-			{/each}
+			<div class="tabs">
+				{#each pages as page, i}
+					<a href={'/' + page.toLowerCase()} class="tab mono" class:active={page === pagename}
+						><span>0{i + 1}</span> {page}</a
+					>
+				{/each}
+			</div>
 		</div>
 	</div>
-	<div class="spacer v" />
+	{#if $contentWidth > 768}
+		<div class="spacer v" />
+	{:else}
+		<div class="spacer h" />
+	{/if}
+
 	<div class="content-wrapper">
 		<div class="content" bind:clientWidth={$contentWidth} bind:clientHeight={$contentHeight}>
 			{#if pages.includes(pagename)}
@@ -75,6 +82,10 @@
 
 		background: $bkg;
 
+		@media screen and (max-width: $mobile) {
+			flex-direction: column;
+		}
+
 		.bar {
 			position: relative;
 			z-index: 2;
@@ -85,6 +96,11 @@
 
 			background: $bkg;
 
+			@media screen and (max-width: $mobile) {
+				width: 100%;
+				padding: 1rem;
+			}
+
 			.wrapper {
 				position: sticky;
 				top: 1em;
@@ -92,6 +108,12 @@
 				display: flex;
 				align-items: center;
 				flex-direction: column;
+			}
+		}
+
+		@media screen and (max-width: $mobile) {
+			.tabs {
+				display: flex;
 			}
 		}
 
@@ -109,6 +131,15 @@
 			background: rgba($accent, 0.2);
 
 			@extend %border-radius;
+
+			@media screen and (max-width: $mobile) {
+				font-size: 0.7em;
+
+				display: inline-block;
+
+				width: 25vw;
+				margin: 0 0.2rem;
+			}
 
 			&:hover,
 			&:focus,

@@ -62,9 +62,19 @@
 	.about {
 		font-size: 1.5em;
 
+		@media screen and (max-width: $mobile) {
+			font-size: 1em;
+		}
+
 		.title {
 			font-size: 2.5em;
 			font-weight: normal;
+
+			white-space: nowrap;
+
+			@media screen and (max-width: $mobile) {
+				font-size: 1.5em;
+			}
 		}
 
 		.name-line {
@@ -84,6 +94,10 @@
 				max-width: 5.25em;
 
 				stroke: $accent;
+
+				@media screen and (max-width: $mobile) {
+					max-width: 5.6em;
+				}
 			}
 		}
 	}

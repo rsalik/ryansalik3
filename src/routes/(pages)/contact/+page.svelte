@@ -11,6 +11,10 @@
 
 		margin-bottom: 0.2em;
 
+		@media screen and (max-width: 768px) {
+			font-size: 1.2em;
+		}
+
 		span {
 			margin-right: 0.5em;
 		}

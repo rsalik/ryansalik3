@@ -1,15 +1,16 @@
 <script lang="ts">
+	import { contentWidth } from '$lib/stores';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 
 	let { project, prev, next } = data;
 
-    $: {
-        project = data.project;
-        prev = data.prev;
-        next = data.next;
-    }
+	$: {
+		project = data.project;
+		prev = data.prev;
+		next = data.next;
+	}
 
 	let mPrev = { x: 2000, y: 0 };
 	let mNext = { x: 2000, y: 0 };
@@ -56,25 +57,31 @@
 	</div>
 </div>
 
-<a href="/project/{prev}" class="close prev" bind:this={prevBar}>
-	<div class="text mono">PREV_PROJECT</div>
+{#if $contentWidth > 768}
+	<a href="/project/{prev}" class="close prev" bind:this={prevBar}>
+		<div class="text mono">PREV_PROJECT</div>
 
-	<div class="cir mono" style:top="{mPrev.y}px" style:left="{mPrev.x}px">
-		<img src="/imgs/prev.svg" alt="" />
-	</div>
-</a>
+		<div class="cir mono" style:top="{mPrev.y}px" style:left="{mPrev.x}px">
+			<img src="/imgs/prev.svg" alt="" />
+		</div>
+	</a>
 
-<a href="/project/{next}" class="close next" bind:this={nextBar}>
-	<div class="text mono">NEXT_PROJECT</div>
+	<a href="/project/{next}" class="close next" bind:this={nextBar}>
+		<div class="text mono">NEXT_PROJECT</div>
 
-	<div class="cir mono" style:top="{mNext.y}px" style:left="{mNext.x}px">
-		<img src="/imgs/next.svg" alt="" />
-	</div>
-</a>
+		<div class="cir mono" style:top="{mNext.y}px" style:left="{mNext.x}px">
+			<img src="/imgs/next.svg" alt="" />
+		</div>
+	</a>
+{/if}
 
 <style lang="scss">
 	.proj {
 		width: 70%;
+
+		@media screen and (max-width: 768px) {
+			width: 100%;
+		}
 
 		img {
 			max-width: 80%;
@@ -187,6 +194,12 @@
 
 		$disabled-color: mix($bkg, white, 60%);
 
+		@media screen and (max-width: 768px) {
+			align-items: unset;
+			flex-direction: column;
+			justify-content: center;
+		}
+
 		.btn {
 			font-size: 1.5em;
 
@@ -212,6 +225,10 @@
 			$bkg 10px
 			);
 
+			@media screen and (max-width: 768px) {
+				font-size: 1.2em;
+			}
+
 			&:hover {
 				color: $bkg;
 				background: $color;
@@ -222,6 +239,11 @@
 
 				color: $muted-accent;
 				border-color: $muted-accent;
+
+				@media screen and (max-width: 768px) {
+					margin-top: 0.5em;
+					margin-left: 0;
+				}
 
 				&:hover {
 					color: $bkg;

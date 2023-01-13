@@ -22,6 +22,10 @@
 		grid-template-columns: repeat(auto-fill, minmax(20vw, 1fr));
 		gap: 1em;
 
+		@media screen and (max-width: $mobile) {
+			grid-template-columns: repeat(auto-fill, 100%);
+		}
+
 		.project {
 			box-sizing: border-box;
 			width: 100%;
