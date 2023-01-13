@@ -1,0 +1,15 @@
+$color: lemonchiffon;
+$gray: #484848;
+$accent: #ff8c00;
+
+$bkg: #1a1a1a;
+
+$mobile: 768px;
+
+%border-radius {
+	border-radius: 5px;
+
+	@media screen and (max-width: $mobile) {
+		border-radius: 2.5px;
+	}
+}
