@@ -12,8 +12,8 @@
 		next = data.next;
 	}
 
-	let mPrev = { x: 2000, y: 0 };
-	let mNext = { x: 2000, y: 0 };
+	let mPrev = { x: -20000, y: 0 };
+	let mNext = { x: -20000, y: 0 };
 	let prevBar: HTMLElement;
 	let nextBar: HTMLElement;
 
@@ -22,15 +22,15 @@
 		mPrev.x = event.clientX - prevRect.left;
 		mPrev.y = event.clientY - prevRect.top;
 
-		if (event.clientX < prevRect.x) mPrev.x = -2000;
-		if (mPrev.y > prevRect.bottom) mPrev.y = -2000;
+		if (event.clientX < prevRect.x) mPrev.x = -20000;
+		if (mPrev.y > prevRect.bottom) mPrev.y = -20000;
 
 		const nextRect = nextBar.getBoundingClientRect();
 		mNext.x = event.clientX - nextRect.left;
 		mNext.y = event.clientY - nextRect.top;
 
-		if (event.clientX < nextRect.x) mNext.x = -2000;
-		if (mNext.y < 0) mNext.y = -2000;
+		if (event.clientX < nextRect.x) mNext.x = -20000;
+		if (mNext.y < 0) mNext.y = -20000;
 	}
 </script>
 

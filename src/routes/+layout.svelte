@@ -2,7 +2,7 @@
 	import '../styles/style.scss';
 	import { page } from '$app/stores';
 
-	import { fade } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 
 	import pages from '$lib/pages.json';
 	import projects from '$lib/projects.json';
@@ -49,23 +49,28 @@
 	{/if}
 
 	<div class="content-wrapper">
-		<div class="content" bind:clientWidth={$contentWidth} bind:clientHeight={$contentHeight}>
-			{#if pages.includes(pagename)}
-				<div class="title pg-title mono">
-					<span>0{pages.indexOf(pagename) + 1}</span>
-					{pagename}
-				</div>
-			{:else if pagename === 'Project'}
-				<div class="title pg-title mono">
-					<span>02{ALPHABET[Object.keys(projects).indexOf($page.url.pathname.split('/')[2])]}</span>
-					{projectOf($page.url.pathname.split('/')[2]).name}
-				</div>
-			{/if}
+		{#key $page.url.pathname}
+			<div class="content" bind:clientWidth={$contentWidth} bind:clientHeight={$contentHeight}
+            in:fly={{ duration: 400, x: -200 }}>
+				{#if pages.includes(pagename)}
+					<div class="title pg-title mono">
+						<span>0{pages.indexOf(pagename) + 1}</span>
+						{pagename}
+					</div>
+				{:else if pagename === 'Project'}
+					<div class="title pg-title mono">
+						<span
+							>02{ALPHABET[Object.keys(projects).indexOf($page.url.pathname.split('/')[2])]}</span
+						>
+						{projectOf($page.url.pathname.split('/')[2]).name}
+					</div>
+				{/if}
 
-			<div class="flex">
-				<slot />
+				<div class="flex">
+					<slot />
+				</div>
 			</div>
-		</div>
+		{/key}
 	</div>
 </div>
 
