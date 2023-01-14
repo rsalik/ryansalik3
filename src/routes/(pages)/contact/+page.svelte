@@ -11,7 +11,7 @@
 
 		margin-bottom: 0.2em;
 
-		@media screen and (max-width: 768px) {
+		@media screen and (max-width: $mobile) {
 			font-size: 1.2em;
 		}
 

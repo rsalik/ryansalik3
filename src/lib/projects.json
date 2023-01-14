@@ -16,7 +16,7 @@
 	"concurrently": {
 		"name": "The Concurrently",
 		"image": "/imgs/concurrently.jpg",
-		"description": "The Concurrently is a blog created with SvelteKit and hosted on Vercel.",
+		"description": "The Concurrently is a blog created with SvelteKit and hosted on Vercel (I am not a blogger, I just wanted to make a blog site).",
 		"webLink": "https://concurrently.ryansalik.com",
 		"repoLink": "https://www.github.com/rsalik/concurrently-blog"
 	},
