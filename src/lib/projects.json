@@ -24,7 +24,7 @@
 		"name": "Staples WTP",
 		"image": "/imgs/wtp.jpg",
 		"description": "A web application designed for the competitive Staples We the People team. It allows users to view competition materials, view the completion status of their work, and coordinate meetings with the teacher. We the People is a competition in which students demonstrate their understanding of complex political and Constitutional issues in a simulated \"Congressional\" hearing format. Written in Svelte, its website and database are hosted by Firebase.",
-		"webLink": "https://shs-wtp.vercel.app/",
+		"webLink": "https://shs-wtp.web.app/",
 		"repoLink": "https://github.com/rsalik/Staples-WTP"
 	},
 	"typeracer": {
